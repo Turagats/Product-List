@@ -1,0 +1,17 @@
+.product-box {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 250px;
+    border: 2px solid black;
+    aspect-ratio: 1/1;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.checkbox {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}

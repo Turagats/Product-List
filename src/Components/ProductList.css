@@ -1,11 +1,7 @@
 .view {
     display: flex;
     flex-direction: column;
-    /* position: relative; */
-    /* width: 100vw; */
-    /* height: 100vh; */
     align-items: center;
-
 }
 
 .header-div {
@@ -22,15 +18,12 @@
 }
 
 .header {
-
     font-size: xx-large;
     font-weight: bolder;
 }
 
 
 .products-div {
-
-    /* position: relative; */
     margin-top: 4rem;
     justify-content: space-between;
     width: 85%;
@@ -38,14 +31,12 @@
     grid-template-columns: auto auto auto auto;
     padding: 10px;
     margin-bottom: 6rem;
-
 }
 
 .button-container {
     display: flex;
     justify-content: space-between;
     width: 20rem;
-    /* margin-right: 1rem; */
 }
 
 
@@ -55,21 +46,18 @@
     font-size: large;
     font-weight: 500;
     position: fixed;
-    /* margin-bottom: 20px; */
     bottom: 0;
     border-top: 3px solid black;
     width: 90%;
     text-align: center;
     padding-top: 0.5rem;
     padding-bottom: 1rem;
-
 }
 
 
 
 
 .button-add-remove {
-
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 3px;
@@ -80,7 +68,6 @@
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
     position: relative;
     text-decoration: 'none'
-
 }
 
 .button-add-remove:active {

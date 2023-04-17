@@ -8,10 +8,7 @@ function ProductList() {
 
   const [selectedItems, setSelectedItems] = useState([]);
   const [renderAll, setRenderAll] = useState(false);
-  // const [isChecked, setIsChecked] = useState(false);
-
   const handleItemSelect = (item) => {
-    // console.log(item.target.checked)
     const isSelected = selectedItems.includes(item.target.id);
     if (isSelected) {
       setSelectedItems(selectedItems.filter((i) => i !== item.target.id));
@@ -20,7 +17,6 @@ function ProductList() {
     }
     console.log("1", item.target.id);
     if (item.target.id) {
-      // setIsChecked(true);
     }
   };
 
@@ -65,20 +61,6 @@ function ProductList() {
         </div>
       </div>
       <div className="products-div">
-        {/* 
-
-        {Array.from({ length: data.length }, (_, i) => (
-          <Product
-            id={data[i].products_id}
-            sku={data[i].products_sku}
-            name={data[i].products_name}
-            price={data[i].products_price}
-            value={data[i].products_value}
-            atribute={data[i].products_atribute}
-            selected={handleItemSelect}
-          />
-        ))} */}
-
         {data.map((i) => {
           return (
             <Product
@@ -93,19 +75,6 @@ function ProductList() {
             ></Product>
           );
         })}
-        {/* {rame()} */}
-        {/* {data.map(item => {
-          <Product
-          id={item.products_id}
-          sku={item.products_sku}
-          name={item.products_name}
-          price={item.products_price}
-          value={item.products_value}
-          atribute={item.products_atribute}
-          selected={handleItemSelect}>
-            
-          </Product>
-        })} */}
       </div>
       <div className="footer-div">
         <span className="footer">Scandiweb Test assigment</span>

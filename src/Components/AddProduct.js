@@ -10,12 +10,6 @@ function AddProduct() {
       [key]: value,
     }));
   };
-  // const [isValid, setIsValid] = useState(false);
-  // const [skuIsTouched, setSkuIsTouched] = useState(false);
-  // const [nameIsTouched, setNameIsTouched] = useState(false);
-  // const [priceIsTouched, setPriceIsTouched] = useState(false);
-  // const [atributeIsTouched, setAtributeIsTouched] = useState(false);
-  // const [valueIsTouched, setValueIsTouched] = useState(false);
 
   const [added, setAdded] = useState(false);
   const [sku, setSku] = useState("");
@@ -29,7 +23,6 @@ function AddProduct() {
   const [isPriceValid, setIsPriceValid] = useState(false);
   const [isAtributeValid, setIsAtributeValid] = useState(false);
   const [isValueValid, setIsValueValid] = useState(false);
-  // const [list, setList] = useState([]);
 
   const HandleSkuValue = (event) => {
     setSku(event.target.value);
@@ -60,7 +53,6 @@ function AddProduct() {
   });
 
   const HandleSku = () => {
-    // setSkuIsTouched(true);
     setIsSkuValid(sku.length > 0);
     if (sku === "") {
       setMySkuStyle({ borderColor: "red", backgroundColor: "pink" });
@@ -72,7 +64,6 @@ function AddProduct() {
     setName(event.target.value);
   };
   const HandleName = () => {
-    // setNameIsTouched(true);
     setIsNameValid(name.length > 0);
     if (name === "") {
       setMyNameStyle({ borderColor: "red", backgroundColor: "pink" });
@@ -84,7 +75,6 @@ function AddProduct() {
     setPrice(event.target.value);
   };
   const HandlePrice = () => {
-    // setPriceIsTouched(true);
     setIsPriceValid(price.length > 0);
     if (price === "") {
       setMyPriceStyle({ borderColor: "red", backgroundColor: "pink" });
@@ -96,7 +86,6 @@ function AddProduct() {
     setAtribute(event.target.value);
   };
   const HandleAtribute = () => {
-    // setAtributeIsTouched(true);
     setIsAtributeValid(atribute.length > 0);
     if (atribute === "") {
       setMyAtributeStyle({ borderColor: "red", backgroundColor: "pink" });
@@ -108,7 +97,6 @@ function AddProduct() {
     setValue(event.target.value);
   };
   const HandleValue = () => {
-    // setValueIsTouched(true);
     setIsValueValid(value.length > 0);
     if (value === "") {
       setMyValueStyle({ borderColor: "red", backgroundColor: "pink" });
@@ -195,16 +183,18 @@ function AddProduct() {
         </div>
       </div>
 
-      {/* {added && ( */}
+      {added && (
         <div className="succesfully-added-product">
-          <div className="succesfully-added-product-text">Product succesfully added</div>
+          <div className="succesfully-added-product-text">
+            Product succesfully added
+          </div>
           <div>
             <Link to="/" className="button-add-remove" d="okay-button">
               Okay
             </Link>
           </div>
         </div>
-      {/* // )} */}
+      )}
 
       <div className="products-Add">
         <div className="inputs">
@@ -282,6 +272,15 @@ function AddProduct() {
               Value
             </label>
             <input
+              placeholder={
+                atribute === "DVD"
+                  ? "Size:  " + value
+                  : atribute === "Furniture"
+                  ? "Dimension:  " + value
+                  : atribute === "Book"
+                  ? "Weight:  " + value
+                  : "Value"
+              }
               onChange={(event) => {
                 HandleProductKey("value", event.target.value);
                 HandleValueValue(event);
@@ -295,130 +294,10 @@ function AddProduct() {
           </div>
         </div>
       </div>
-
-      {/* <div className="products-Add">
-        <div className="inputs">
-          <div className="sku-input">
-            <label htmlFor="product-add-sku">SKU</label>
-
-            <input
-              onChange={(event) => HandleProductKey("sku", event.target.value)}
-              onBlur={HandleSku}
-              type="text"
-              className="product-add-sku"
-              id="product-add-sku"
-              style={{
-                borderColor: skuIsTouched && !productKeys.sku ? "red" : "",
-                backgroundColor:
-                  skuIsTouched && !productKeys.sku
-                    ? "pink"
-                    : productKeys.atribute
-                    ? "#e5f2ff"
-                    : "",
-              }}
-            ></input>
-          </div>
-          <div className="name-input">
-            <label type="text" htmlFor="product-add-name">
-              Name
-            </label>
-            <input
-              onChange={(event) => HandleProductKey("name", event.target.value)}
-              className="product-add-name"
-              id="product-add-name"
-              onBlur={HandleName}
-              style={{
-                borderColor: nameIsTouched && !productKeys.name ? "red" : "",
-                backgroundColor:
-                  nameIsTouched && !productKeys.name
-                    ? "pink"
-                    : productKeys.atribute
-                    ? "#e5f2ff"
-                    : "",
-              }}
-            ></input>
-          </div>
-          <div className="price-input">
-            <label type="number" htmlFor="product-add-price">
-              PRICE
-            </label>
-            <input
-              onChange={(event) =>
-                HandleProductKey("price", event.target.value)
-              }
-              className="product-add-price"
-              id="product-add-price"
-              onBlur={HandlePrice}
-              style={{
-                borderColor: priceIsTouched && !productKeys.price ? "red" : "",
-                backgroundColor:
-                  priceIsTouched && !productKeys.price
-                    ? "pink"
-                    : productKeys.atribute
-                    ? "#e5f2ff"
-                    : "",
-              }}
-            ></input>
-          </div>
-
-          <div className="selector-input">
-            <label>Atribute</label>
-            <select
-              onChange={(event) =>
-                HandleProductKey("atribute", event.target.value)
-              }
-              className="switcher-selector"
-              id="product-atribute"
-              style={{
-                borderColor:
-                  atributeIsTouched && !productKeys.atribute ? "red" : "",
-
-                backgroundColor:
-                  atributeIsTouched && !productKeys.atribute
-                    ? "pink"
-                    : productKeys.atribute
-                    ? "#e5f2ff"
-                    : "",
-              }}
-              onBlur={HandleAtribute}
-            >
-              <option disabled selected></option>
-              <option>DVD</option>
-              <option>Book</option>
-              <option>Furniture</option>
-            </select>
-          </div>
-
-          <div className="price-input">
-            <label type="text" htmlFor="product-demension">
-              Value
-            </label>
-            <input
-              onChange={(event) =>
-                HandleProductKey("value", event.target.value)
-              }
-              className="product-demension"
-              id="product-demension"
-              style={{
-                borderColor: valueIsTouched && !productKeys.value ? "red" : "",
-                backgroundColor:
-                  valueIsTouched && !productKeys.value
-                    ? "pink"
-                    : productKeys.atribute
-                    ? "#e5f2ff"
-                    : "",
-              }}
-              onBlur={HandleValue}
-            ></input>
-          </div>
-        </div>
-      </div> */}
-
       <div className="footer-div">
         <span className="footer">Scandiweb Test assigment</span>
       </div>
     </div>
   );
 }
-
 export default AddProduct;

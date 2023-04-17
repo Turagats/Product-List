@@ -195,16 +195,16 @@ function AddProduct() {
         </div>
       </div>
 
-      {added && (
+      {/* {added && ( */}
         <div className="succesfully-added-product">
-          <div>Product succesfully added</div>
+          <div className="succesfully-added-product-text">Product succesfully added</div>
           <div>
-            <Link to="/" className="button-add-remove">
+            <Link to="/" className="button-add-remove" d="okay-button">
               Okay
             </Link>
           </div>
         </div>
-      )}
+      {/* // )} */}
 
       <div className="products-Add">
         <div className="inputs">

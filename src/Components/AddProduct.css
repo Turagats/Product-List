@@ -2,15 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
 }
 
 .products-Add {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 100vh;
+    /* justify-content: space-between; */
+    /* height: 100vh; */
     width: 90%;
     margin: 200px;
     font-weight: bolder;
@@ -19,8 +19,9 @@
 .inputs {
     display: flex;
     flex-direction: column;
-    width: 25%;
+    align-items: center;
     justify-content: space-between;
+    width: 25%;
     height: 25vh;
 }
 
@@ -28,19 +29,20 @@
 .name-input,
 .price-input {
     display: flex;
-    width: 20rem;
+    width: 100%;
     justify-content: space-between;
 }
 
 .selector-input {
     display: flex;
     justify-content: space-between;
-    width: 20rem;
+    width: 100%;
 }
 
 .switcher-selector {
+
     border-style: double;
-    width: 11rem;
+    width: 10rem;
     height: 2.2rem;
     border: 2px solid black;
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
@@ -48,6 +50,7 @@
 
 input {
     height: 2rem;
+    width: 10rem;
     border: 2px solid black;
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
 }

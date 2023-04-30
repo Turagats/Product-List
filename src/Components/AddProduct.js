@@ -12,7 +12,7 @@ function AddProduct() {
   };
 
   const [added, setAdded] = useState(false);
-  const [sku, setSku] = useState("");
+  const [sku, setSku] = useState("SKU");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [atribute, setAtribute] = useState("");
@@ -24,9 +24,9 @@ function AddProduct() {
   const [isAtributeValid, setIsAtributeValid] = useState(false);
   const [isValueValid, setIsValueValid] = useState(false);
 
-  const HandleSkuValue = (event) => {
-    setSku(event.target.value);
-    console.log("sku", event.target.value);
+  const HandleSkuValue = (e) => {
+    const additionalLetters = e.target.value.slice(3);
+    setSku(`SKU${additionalLetters}`);
   };
 
   const [mySkuStyle, setMySkuStyle] = useState({
@@ -137,13 +137,13 @@ function AddProduct() {
       document.getElementById("product-demension").value = "";
 
       setProductKeys({});
-      console.log(" vqeni");
       setSku("");
       setName("");
       setPrice("");
       setAtribute("");
       setValue("");
       setAdded(true);
+      window.location.href = '/';
     } else {
       if (!isSkuValid) {
         setIsSkuValid(false);
@@ -183,7 +183,7 @@ function AddProduct() {
         </div>
       </div>
 
-      {added && (
+      {/* {added && (
         <div className="succesfully-added-product">
           <div className="succesfully-added-product-text">
             Product succesfully added
@@ -194,13 +194,12 @@ function AddProduct() {
             </Link>
           </div>
         </div>
-      )}
+      )} */}
 
       <div className="products-Add">
         <div className="inputs">
           <div className="sku-input">
             <label htmlFor="product-add-sku">SKU</label>
-
             <input
               onChange={(event) => {
                 HandleProductKey("sku", event.target.value);
